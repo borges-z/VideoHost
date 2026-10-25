@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Início — VideoHost</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body{font-family:Tahoma,Verdana,Arial,sans-serif;background:#c7d4df;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.12) 0,rgba(255,255,255,.12) 1px,transparent 1px,transparent 3px)}
+    .chrome{border:1px solid #6688a5;box-shadow:inset 1px 1px 0 #fff,inset -1px -1px 0 #718ca3,0 1px 2px #0004}
+    .title{background:linear-gradient(#1674b9,#064b87 45%,#033465);color:#fff;text-shadow:1px 1px #001a34;border-bottom:1px solid #00284d}
+    .blueprint{background-color:#06325b;background-image:linear-gradient(#328fd51f 1px,transparent 1px),linear-gradient(90deg,#328fd51f 1px,transparent 1px);background-size:14px 14px}
+    .retro{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;color:#fff;font-weight:bold;background:linear-gradient(#2c9ce9,#0870bd 45%,#034a86);border:1px solid #00345e;box-shadow:inset 1px 1px #ffffffa6,inset -1px -1px #0006;text-shadow:1px 1px #00345e}
+    .retro:hover{filter:brightness(1.08)}
+    .secondary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border:1px solid #8aa5bb;color:#17466d;font-weight:bold;background:linear-gradient(#fff,#d7e5ef);box-shadow:inset 1px 1px #fff,inset -1px -1px #a6bdce}
+    a:focus-visible{outline:2px solid #f59e0b;outline-offset:3px}
+  </style>
+</head>
+<body class="flex min-h-screen flex-col text-[#14365a]">
+  <div class="mx-auto flex w-full max-w-6xl flex-1 flex-col p-2 sm:p-4">
+    <header class="chrome overflow-hidden rounded-sm">
+      <div class="blueprint relative flex min-h-[104px] items-center justify-between gap-4 px-4 py-4 sm:px-7">
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#02182d]/80 via-transparent to-[#02182d]/35"></div>
+        <div class="relative flex items-center gap-3 sm:gap-4">
+          <div class="flex h-12 w-12 items-center justify-center border-2 border-sky-200 bg-gradient-to-br from-slate-100 to-slate-400 shadow sm:h-14 sm:w-14"><div class="flex h-9 w-9 items-center justify-center border border-sky-300 bg-gradient-to-br from-sky-500 to-blue-950 text-2xl text-white">▶</div></div>
+          <div><div class="text-3xl font-black italic tracking-tight text-sky-300 drop-shadow sm:text-4xl">VideoHost</div><p class="mt-1 text-xs font-bold italic text-sky-100">Hospede seus vídeos. Compartilhe onde quiser.</p></div>
+        </div>
+        <div class="relative hidden text-right text-xs font-bold italic text-sky-100 sm:block"><div class="text-3xl">🌐</div><p>Rápido&nbsp; • &nbsp;Seguro&nbsp; • &nbsp;Simples</p></div>
+      </div>
+    </header>
+
+    <main class="my-auto py-6 sm:py-10">
+      <section class="chrome overflow-hidden rounded-sm bg-gradient-to-b from-white to-[#e2edf5]">
+        <h1 class="title px-4 py-3 text-sm font-bold">⌂ &nbsp;Painel de Controle</h1>
+        <div class="p-5 sm:p-8">
+          <div class="flex flex-col gap-5 sm:flex-row sm:items-center">
+            <div class="flex h-20 w-20 shrink-0 items-center justify-center border-2 border-[#91abc0] bg-gradient-to-br from-white to-[#cbdce9] text-4xl shadow-inner">👤</div>
+            <div class="min-w-0 flex-1">
+              <p class="text-xs font-bold uppercase tracking-wider text-[#34729e]">Área do cliente</p>
+              <h2 class="mt-1 break-words text-2xl font-black text-[#073d72] sm:text-3xl">Bem-vindo ao VideoHost!</h2>
+              <p class="mt-2 text-sm text-slate-700">Você está logado como <strong class="text-[#07549a]">{{ user.nome }}</strong>.</p>
+              <p class="mt-2 max-w-2xl text-sm leading-6 text-slate-600">Gerencie seus vídeos hospedados e tenha seus links de mídia sempre à mão. Envie arquivos, acompanhe seus uploads e utilize suas playlists nos sistemas compatíveis com HLS.</p>
+            </div>
+          </div>
+
+          <div class="mt-7 border-t border-[#b7cad9] pt-5">
+            <h3 class="text-sm font-bold text-[#17466d]">O que deseja fazer?</h3>
+            <div class="mt-4 grid gap-4 md:grid-cols-2">
+              <section class="chrome bg-gradient-to-b from-white to-[#d9e7f2]">
+                <div class="title px-3 py-2 text-sm font-bold">📤 &nbsp;Enviar um vídeo</div>
+                <div class="p-4">
+                  <div class="flex items-start gap-3"><div class="flex h-12 w-12 shrink-0 items-center justify-center border border-[#9fb8cc] bg-gradient-to-br from-white to-[#cbdce9] text-2xl">🎞️</div><div><h4 class="text-sm font-bold text-[#073d72]">Novo upload</h4><p class="mt-1 text-xs leading-5 text-slate-600">Envie um arquivo de vídeo para hospedá-lo na plataforma.</p></div></div>
+                  <a href="{{ url_for('upload') }}" class="retro mt-4 w-full rounded-sm px-4 py-3 text-xs"><span aria-hidden="true">📁</span> Fazer Upload</a>
+                </div>
+              </section>
+              <section class="chrome bg-gradient-to-b from-white to-[#d9e7f2]">
+                <div class="title px-3 py-2 text-sm font-bold">🎬 &nbsp;Sua biblioteca</div>
+                <div class="p-4">
+                  <div class="flex items-start gap-3"><div class="flex h-12 w-12 shrink-0 items-center justify-center border border-[#9fb8cc] bg-gradient-to-br from-white to-[#cbdce9] text-2xl">🗂️</div><div><h4 class="text-sm font-bold text-[#073d72]">Meus Uploads</h4><p class="mt-1 text-xs leading-5 text-slate-600">Consulte os arquivos enviados e acesse os detalhes dos seus vídeos.</p></div></div>
+                  <a href="{{ url_for('meus_uploads') }}" class="secondary mt-4 w-full rounded-sm px-4 py-3 text-xs"><span aria-hidden="true">📋</span> Ver Meus Uploads</a>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-col items-start justify-between gap-3 border-t border-[#b7cad9] pt-5 sm:flex-row sm:items-center">
+            <p class="text-xs leading-5 text-slate-600"><strong class="text-[#17466d]">Lembrete:</strong> guarde seus links de vídeo com segurança e compartilhe-os apenas com quem deve ter acesso.</p>
+            <a href="{{ url_for('logout') }}" class="secondary shrink-0 rounded-sm px-4 py-2 text-xs"><span aria-hidden="true">🚪</span> Sair da conta</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="chrome mt-auto flex flex-col justify-between gap-2 rounded-sm bg-gradient-to-b from-[#064578] to-[#022344] px-4 py-3 text-[10px] text-sky-100 sm:flex-row sm:items-center"><p>VideoHost © 2025 — Todos os direitos reservados.</p><p class="italic">Hospedagem simples. Distribuição flexível.</p></footer>
+  </div>
+</body>
+</html>

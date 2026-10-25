@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Erro 500 — VideoHost</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            body {
+                font-family: Tahoma, Verdana, Arial, sans-serif;
+                background: #c7d4df;
+                background-image: repeating-linear-gradient(
+                    0deg,
+                    rgba(255, 255, 255, 0.12) 0,
+                    rgba(255, 255, 255, 0.12) 1px,
+                    transparent 1px,
+                    transparent 3px
+                );
+            }
+            .chrome {
+                border: 1px solid #6688a5;
+                box-shadow:
+                    inset 1px 1px 0 #fff,
+                    inset -1px -1px 0 #718ca3,
+                    0 1px 2px #0004;
+            }
+            .title {
+                background: linear-gradient(#1674b9, #064b87 45%, #033465);
+                color: white;
+                text-shadow: 1px 1px #001a34;
+                border-bottom: 1px solid #00284d;
+            }
+            .blueprint {
+                background-color: #06325b;
+                background-image: linear-gradient(#328fd51f 1px, transparent 1px),
+                    linear-gradient(90deg, #328fd51f 1px, transparent 1px);
+                background-size: 14px 14px;
+            }
+            .retro {
+                color: #fff;
+                font-weight: bold;
+                background: linear-gradient(#2c9ce9, #0870bd 45%, #034a86);
+                border: 1px solid #00345e;
+                box-shadow:
+                    inset 1px 1px #ffffffa6,
+                    inset -1px -1px #0006;
+                text-shadow: 1px 1px #00345e;
+            }
+            .secondary {
+                border: 1px solid #8aa5bb;
+                color: #17466d;
+                font-weight: bold;
+                background: linear-gradient(#fff, #d7e5ef);
+                box-shadow:
+                    inset 1px 1px #fff,
+                    inset -1px -1px #a6bdce;
+            }
+        </style>
+    </head>
+    <body class="flex min-h-screen flex-col text-[#14365a]">
+        <div class="mx-auto flex w-full max-w-[1100px] flex-1 flex-col p-2 sm:p-4">
+            <header class="chrome overflow-hidden rounded-sm">
+                <div class="blueprint relative flex min-h-[100px] items-center justify-between gap-4 px-4 py-4 sm:px-7">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-[#02182d]/80 via-transparent to-[#02182d]/35"
+                    ></div>
+                    <a
+                        href="/"
+                        class="relative flex items-center gap-3 sm:gap-4"
+                        aria-label="VideoHost — página inicial"
+                    >
+                        <div
+                            class="flex h-12 w-12 items-center justify-center border-2 border-sky-200 bg-gradient-to-br from-slate-100 to-slate-400 sm:h-14 sm:w-14"
+                        >
+                            <div
+                                class="flex h-9 w-9 items-center justify-center border border-sky-300 bg-gradient-to-br from-sky-500 to-blue-950 text-2xl text-white"
+                            >
+                                ▶
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-black italic tracking-tight text-sky-300 drop-shadow sm:text-4xl">
+                                VideoHost
+                            </div>
+                            <p class="mt-1 text-xs font-bold italic text-sky-100">
+                                Hospede seus vídeos. Compartilhe onde quiser.
+                            </p>
+                        </div>
+                    </a>
+                    <div class="relative hidden text-right text-xs font-bold italic text-sky-100 sm:block">
+                        <div class="text-3xl">🌐</div>
+                        <p>Rápido&nbsp; • &nbsp;Seguro&nbsp; • &nbsp;Simples</p>
+                    </div>
+                </div>
+            </header>
+            <main class="my-auto py-6 sm:py-10">
+                <section
+                    class="chrome mx-auto max-w-3xl overflow-hidden rounded-sm bg-gradient-to-b from-white to-[#dce8f1]"
+                >
+                    <div class="title flex items-center gap-2 px-4 py-3 text-sm font-bold">
+                        <span aria-hidden="true">⚠️</span>
+                        <h1>Erro interno do servidor</h1>
+                    </div>
+                    <div class="p-5 sm:p-9">
+                        <div class="grid gap-6 sm:grid-cols-[160px_1fr] sm:items-start">
+                            <div
+                                class="mx-auto flex h-36 w-36 items-center justify-center border-2 border-[#91abc0] bg-gradient-to-br from-white to-[#cbdce9] shadow-inner sm:h-40 sm:w-40"
+                            >
+                                <div class="text-center">
+                                    <div class="text-5xl font-black tracking-tight text-[#07549a]">500</div>
+                                    <div
+                                        class="mt-1 border-t border-[#91abc0] pt-1 text-[10px] font-bold uppercase tracking-[.18em] text-slate-600"
+                                    >
+                                        Server Error
+                                    </div>
+                                    <div class="mt-2 text-2xl" aria-hidden="true">🛠️</div>
+                                </div>
+                            </div>
+                            <div class="text-center sm:text-left">
+                                <p class="text-xl font-bold text-[#073d72] sm:text-2xl">
+                                    Ops! Algo deu errado por aqui.
+                                </p>
+                                <p class="mt-3 text-sm leading-6 text-slate-700">
+                                    O VideoHost encontrou um problema inesperado ao processar sua solicitação. Nossa
+                                    equipe precisa verificar o que aconteceu. Esta mensagem, por si só, não significa
+                                    que seus vídeos foram perdidos.
+                                </p>
+                                <div
+                                    class="mt-5 border border-amber-300 bg-[#fff8df] p-3 text-left text-xs leading-relaxed text-[#79520a] shadow-inner"
+                                >
+                                    <strong>O que você pode fazer?</strong>
+                                    <ul class="mt-2 list-disc space-y-1 pl-5">
+                                        <li>Tente recarregar a página em alguns instantes.</li>
+                                        <li>
+                                            Se estava enviando um vídeo, verifique a biblioteca antes de tentar enviar
+                                            novamente.
+                                        </li>
+                                        <li>
+                                            Se o problema continuar, entre em contato com o suporte e informe o código
+                                            <strong>VH-500</strong>.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6 flex flex-col justify-center gap-3 sm:flex-row sm:justify-start">
+                                    <a href="/" class="secondary rounded-sm px-5 py-3 text-xs"
+                                        >⌂ &nbsp;Voltar ao início</a
+                                    >
+                                </div>
+                                <p id="retryMessage" class="mt-3 hidden text-xs font-bold text-[#07549a]" role="status">
+                                    Recarregando a página…
+                                </p>
+                            </div>
+                        </div>
+                        <div
+                            class="mt-8 border-t border-[#b7cad9] pt-4 text-center text-[11px] text-slate-500 sm:text-left"
+                        >
+                            Código do erro: <strong class="text-slate-700">VH-500</strong
+                            ><span class="mx-2 hidden sm:inline">|</span
+                            ><span class="mt-1 block sm:mt-0 sm:inline">Erro interno do servidor (HTTP 500)</span>
+                        </div>
+                    </div>
+                </section>
+                <div class="chrome mx-auto mt-4 max-w-3xl bg-[#e5edf4] px-4 py-3 text-center text-xs text-slate-600">
+                    <strong class="text-[#17466d]">Dica:</strong> erros 500 normalmente indicam um problema no servidor,
+                    não no seu navegador.
+                </div>
+            </main>
+            <footer
+                class="chrome mt-auto flex flex-col justify-between gap-2 rounded-sm bg-gradient-to-b from-[#064578] to-[#022344] px-4 py-3 text-[10px] text-sky-100 sm:flex-row sm:items-center"
+            >
+                <p>VideoHost © 2025 — Todos os direitos reservados.</p>
+                <nav class="flex gap-3">
+                    <a href="/termos" class="underline">Termos de Uso</a
+                    ><a href="/privacidade" class="underline">Privacidade</a
+                    ><a href="/contato" class="underline">Contato</a>
+                </nav>
+            </footer>
+        </div>
+        <script>
+            document.getElementById("retryButton").addEventListener("click", () => {
+                document.getElementById("retryMessage").classList.remove("hidden");
+                window.location.reload();
+            });
+        </script>
+    </body>
+</html>

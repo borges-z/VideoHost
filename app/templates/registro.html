@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro — VideoHost</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vh: {
+              navy: '#06284c',
+              deep: '#031a32',
+              blue: '#07549a',
+              bright: '#1688e8',
+              pale: '#eaf2f8',
+              line: '#9fb8cc',
+              ink: '#14365a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: Tahoma, Verdana, Arial, sans-serif;
+      background-color: #c7d4df;
+      background-image: repeating-linear-gradient(
+        0deg, rgba(255,255,255,.12) 0, rgba(255,255,255,.12) 1px,
+        transparent 1px, transparent 3px
+      );
+    }
+    .chrome-frame {
+      border: 1px solid #6688a5;
+      box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #718ca3, 0 1px 2px rgba(0,0,0,.25);
+    }
+    .panel-title {
+      background: linear-gradient(#1674b9 0%, #064b87 45%, #033465 100%);
+      color: #fff;
+      text-shadow: 1px 1px 1px #001a34;
+      border-bottom: 1px solid #00284d;
+    }
+    .blueprint {
+      background-color: #06325b;
+      background-image: linear-gradient(rgba(50,143,213,.12) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(50,143,213,.12) 1px, transparent 1px);
+      background-size: 14px 14px;
+    }
+    .retro-button {
+      color: #fff;
+      font-weight: bold;
+      background: linear-gradient(#2c9ce9 0%, #0870bd 45%, #034a86 100%);
+      border: 1px solid #00345e;
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,.65), inset -1px -1px 0 rgba(0,0,0,.35);
+      text-shadow: 1px 1px 1px #00345e;
+    }
+    .retro-button:hover { filter: brightness(1.08); }
+    .retro-button:active { background: linear-gradient(#034a86, #0870bd); }
+    .form-field input {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #8ca9c0;
+      border-radius: 2px;
+      background: linear-gradient(#fff, #f7fbfe);
+      padding: .65rem .7rem;
+      color: #14365a;
+      font: 13px Tahoma, Verdana, Arial, sans-serif;
+      box-shadow: inset 1px 1px 2px rgba(0,0,0,.12);
+    }
+    .form-field input:focus {
+      outline: 2px solid #83c8fa;
+      outline-offset: 1px;
+      border-color: #1674b9;
+    }
+    .form-field label {
+      display: block;
+      margin-bottom: .4rem;
+      color: #17466d;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .field-error {
+      margin-top: .4rem;
+      color: #9b1c1c;
+      font-size: 12px;
+    }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid #f59e0b;
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body class="flex min-h-screen flex-col text-vh-ink">
+  <div class="mx-auto flex w-full max-w-5xl flex-1 flex-col p-2 sm:p-4">
+    <header class="chrome-frame overflow-hidden rounded-sm">
+      <div class="blueprint relative flex min-h-[104px] items-center justify-between gap-4 px-4 py-4 sm:px-7">
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#02182d]/80 via-transparent to-[#02182d]/35"></div>
+        <a href="/" class="relative flex items-center gap-3 sm:gap-4" aria-label="VideoHost">
+          <div class="flex h-12 w-12 items-center justify-center border-2 border-sky-200 bg-gradient-to-br from-slate-100 to-slate-400 shadow sm:h-14 sm:w-14">
+            <div class="flex h-9 w-9 items-center justify-center border border-sky-300 bg-gradient-to-br from-sky-500 to-blue-950 text-2xl text-white">▶</div>
+          </div>
+          <div>
+            <div class="text-3xl font-black italic tracking-tight text-sky-300 drop-shadow sm:text-4xl">VideoHost</div>
+            <p class="mt-1 text-xs font-bold italic text-sky-100">Hospede seus vídeos. Compartilhe onde quiser.</p>
+          </div>
+        </a>
+        <div class="relative hidden text-right text-xs font-bold italic text-sky-100 sm:block">
+          <div class="text-3xl">🌐</div>
+          <p>Rápido&nbsp; • &nbsp;Seguro&nbsp; • &nbsp;Simples</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="my-auto py-7 sm:py-10">
+      <div class="mx-auto grid max-w-4xl gap-3 md:grid-cols-[minmax(0,1fr)_minmax(300px,390px)]">
+        <section class="chrome-frame overflow-hidden rounded-sm bg-gradient-to-b from-white to-[#e2edf5]">
+          <h1 class="panel-title px-4 py-3 text-sm font-bold">✨ &nbsp;Crie sua conta</h1>
+          <div class="p-5 sm:p-7">
+            <div class="flex items-start gap-4">
+              <div class="hidden h-16 w-16 shrink-0 items-center justify-center border border-[#91abc0] bg-gradient-to-br from-white to-[#cbdce9] text-3xl shadow-inner sm:flex">🖥️</div>
+              <div>
+                <h2 class="text-xl font-bold text-[#073d72]">Bem-vindo ao VideoHost!</h2>
+                <p class="mt-2 text-sm leading-6 text-slate-700">
+                  Cadastre-se para começar a hospedar seus vídeos e utilizar os links gerados nos seus próprios sistemas.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-6 border-t border-[#b7cad9] pt-4">
+              <h3 class="text-xs font-bold uppercase tracking-wide text-[#17466d]">Depois de se cadastrar</h3>
+              <ul class="mt-3 space-y-3 text-xs text-slate-700">
+                <li class="flex items-start gap-2"><span>📤</span><span>Envie seus arquivos de vídeo para hospedagem.</span></li>
+                <li class="flex items-start gap-2"><span>🔗</span><span>Acesse os links dos vídeos para usar em players compatíveis.</span></li>
+                <li class="flex items-start gap-2"><span>🗂️</span><span>Gerencie seus uploads em um único lugar.</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="border-t border-[#b7cad9] bg-[#edf4f9] px-5 py-3 text-[11px] text-slate-600 sm:px-7">
+            <span class="font-bold text-[#17466d]">Dica de segurança:</span> utilize uma senha forte e não a compartilhe com outras pessoas.
+          </div>
+        </section>
+
+        <section class="chrome-frame self-start overflow-hidden rounded-sm bg-gradient-to-b from-white to-[#dce8f1]">
+          <h2 class="panel-title px-4 py-3 text-sm font-bold">📝 &nbsp;Registro</h2>
+          <div class="p-5 sm:p-6">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="mb-5 border border-amber-300 bg-[#fff8df] px-3 py-2 text-xs text-[#79520a]" role="alert">
+                        <p class="mb-1 font-bold">Aviso</p>
+                        <ul class="list-disc space-y-1 pl-4">
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <form action="/registro" method="post" class="space-y-5">
+              {{ form.csrf_token }}
+
+              <div class="form-field">
+                {{ form.nome.label }}
+                {{ form.nome() }}
+                {% if form.nome.errors %}
+                    <div class="field-error" role="alert">
+                      {% for erro in form.nome.errors %}
+                          <p>{{ erro }}</p>
+                      {% endfor %}
+                    </div>
+                {% endif %}
+              </div>
+
+              <div class="form-field">
+                {{ form.email.label }}
+                {{ form.email() }}
+                {% if form.email.errors %}
+                    <div class="field-error" role="alert">
+                      {% for erro in form.email.errors %}
+                          <p>{{ erro }}</p>
+                      {% endfor %}
+                    </div>
+                {% endif %}
+              </div>
+
+              <div class="form-field">
+                {{ form.senha.label }}
+                {{ form.senha() }}
+                {% if form.senha.errors %}
+                    <div class="field-error" role="alert">
+                      {% for erro in form.senha.errors %}
+                          <p>{{ erro }}</p>
+                      {% endfor %}
+                    </div>
+                {% endif %}
+              </div>
+
+              <button type="submit" class="retro-button w-full rounded-sm px-4 py-3 text-xs">
+                <span aria-hidden="true">✓</span> Criar conta
+              </button>
+            </form>
+
+            <div class="mt-5 border-t border-[#b7cad9] pt-4 text-center text-xs">
+              <p class="text-slate-700">Já tem uma conta?</p>
+              <a href="/login" class="mt-2 inline-block font-bold text-blue-700 underline hover:text-blue-950">Entrar »</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="chrome-frame mt-auto flex flex-col justify-between gap-2 rounded-sm bg-gradient-to-b from-[#064578] to-[#022344] px-4 py-3 text-[10px] text-sky-100 sm:flex-row sm:items-center">
+      <p>VideoHost © 2025 — Todos os direitos reservados.</p>
+      <div class="italic">Hospedagem simples. Distribuição flexível.</div>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Vídeos — VideoHost</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: Tahoma, Verdana, Arial, sans-serif;
+      background: #c7d4df;
+      background-image: repeating-linear-gradient(0deg, rgba(255,255,255,.12) 0, rgba(255,255,255,.12) 1px, transparent 1px, transparent 3px);
+    }
+    .chrome-frame {
+      border: 1px solid #6688a5;
+      box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #718ca3, 0 1px 2px rgba(0,0,0,.25);
+    }
+    .panel-title {
+      background: linear-gradient(#1674b9 0%, #064b87 45%, #033465 100%);
+      color: #fff;
+      text-shadow: 1px 1px 1px #001a34;
+      border-bottom: 1px solid #00284d;
+    }
+    .blueprint {
+      background-color: #06325b;
+      background-image: linear-gradient(rgba(50,143,213,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(50,143,213,.12) 1px, transparent 1px);
+      background-size: 14px 14px;
+    }
+    .retro-button {
+      color: #fff; font-weight: bold;
+      background: linear-gradient(#2c9ce9 0%, #0870bd 45%, #034a86 100%);
+      border: 1px solid #00345e;
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,.65), inset -1px -1px 0 rgba(0,0,0,.35);
+      text-shadow: 1px 1px 1px #00345e;
+    }
+    .retro-button:hover { filter: brightness(1.08); }
+    .copy-field {
+      width: 100%; min-width: 220px; box-sizing: border-box;
+      border: 1px solid #8ca9c0; border-radius: 2px;
+      background: linear-gradient(#fff, #f7fbfe); padding: .45rem .55rem;
+      color: #14365a; font: 11px Tahoma, Verdana, Arial, sans-serif;
+      box-shadow: inset 1px 1px 2px rgba(0,0,0,.12);
+    }
+    .copy-field:focus { outline: 2px solid #83c8fa; outline-offset: 1px; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #f59e0b; outline-offset: 3px; }
+  </style>
+</head>
+<body class="min-h-screen text-[#14365a]">
+  <div class="mx-auto max-w-6xl p-2 sm:p-4">
+    <header class="chrome-frame overflow-hidden rounded-sm">
+      <div class="blueprint relative flex min-h-[100px] items-center justify-between gap-4 px-4 py-4 sm:px-7">
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#02182d]/80 via-transparent to-[#02182d]/35"></div>
+        <a href="{{ url_for('meus_uploads') }}" class="relative flex items-center gap-3 sm:gap-4" aria-label="VideoHost">
+          <div class="flex h-12 w-12 items-center justify-center border-2 border-sky-200 bg-gradient-to-br from-slate-100 to-slate-400 shadow sm:h-14 sm:w-14">
+            <div class="flex h-9 w-9 items-center justify-center border border-sky-300 bg-gradient-to-br from-sky-500 to-blue-950 text-2xl text-white">▶</div>
+          </div>
+          <div>
+            <div class="text-3xl font-black italic tracking-tight text-sky-300 drop-shadow sm:text-4xl">VideoHost</div>
+            <p class="mt-1 text-xs font-bold italic text-sky-100">Hospede seus vídeos. Compartilhe onde quiser.</p>
+          </div>
+        </a>
+        <div class="relative hidden text-right text-xs font-bold italic text-sky-100 sm:block">
+          <div class="text-3xl">🌐</div>
+          <p>Rápido&nbsp; • &nbsp;Seguro&nbsp; • &nbsp;Simples</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="mt-4">
+      <section class="chrome-frame overflow-hidden rounded-sm bg-gradient-to-b from-white to-[#e2edf5]">
+        <div class="panel-title flex flex-col justify-between gap-2 px-4 py-3 sm:flex-row sm:items-center">
+          <h1 class="text-sm font-bold">🎞️ &nbsp;Meus Vídeos</h1>
+          <span class="text-xs text-sky-100">Gerencie seus arquivos e copie os links de acesso</span>
+        </div>
+
+        <div class="p-3 sm:p-5">
+          <div class="mb-4 border border-[#b7cad9] bg-[#edf4f9] px-3 py-3 text-xs leading-relaxed text-slate-700">
+            <strong class="text-[#17466d]">Dica:</strong> use o campo de link para selecionar e copiar a URL manualmente ou clique em <strong>Copiar link</strong>.
+          </div>
+
+          <div class="overflow-x-auto border border-[#9fb8cc]">
+            <table class="w-full min-w-[720px] border-collapse text-left text-xs">
+              <thead class="bg-gradient-to-b from-[#f8fbfd] to-[#d4e2ee] text-[#07549a]">
+                <tr>
+                  <th scope="col" class="border border-[#b7cad9] px-3 py-3">Título</th>
+                  <th scope="col" class="border border-[#b7cad9] px-3 py-3">Status</th>
+                  <th scope="col" class="border border-[#b7cad9] px-3 py-3">Link do vídeo</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white/80">
+                {% for video in videos %}
+                  <tr class="odd:bg-white even:bg-[#edf4f9] hover:bg-sky-50">
+                    <td class="border-b border-[#c8d8e5] px-3 py-3 font-bold text-[#17466d]">{{ video.titulo }}</td>
+                    <td class="whitespace-nowrap border-b border-[#c8d8e5] px-3 py-3">
+                      <span class="mr-1 inline-block h-2 w-2 rounded-full border border-green-700 bg-green-500 align-middle"></span>
+                      {{ video.status.value }}
+                    </td>
+                    <td class="border-b border-[#c8d8e5] px-3 py-3">
+                      <div class="flex min-w-[390px] items-center gap-2">
+                        <input
+                          class="copy-field"
+                          type="text"
+                          readonly
+                          aria-label="Link do vídeo {{ video.titulo }}"
+                          value="{{ url_for('stream', cod=video.nome_arquivo, _external=True) }}"
+                          onclick="this.select()"
+                          onfocus="this.select()">
+                        <button
+                          type="button"
+                          class="retro-button shrink-0 rounded-sm px-3 py-2 text-[11px]"
+                          onclick="copyVideoLink(this)">
+                          📋 Copiar link
+                        </button>
+                        <a
+                          class="shrink-0 font-bold text-blue-700 underline hover:text-blue-950"
+                          href="{{ url_for('stream', cod=video.nome_arquivo) }}"
+                          target="_blank"
+                          rel="noopener noreferrer">Abrir</a>
+                      </div>
+                      <p class="copy-feedback mt-1 hidden text-[11px] font-bold text-green-700" role="status">Link copiado!</p>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mt-4 flex flex-col justify-between gap-3 border-t border-[#b7cad9] pt-4 text-xs sm:flex-row sm:items-center">
+            <p class="text-slate-600">Os links são gerados pela plataforma para cada vídeo.</p>
+            <a href="{{ url_for('upload') }}" class="retro-button inline-flex items-center justify-center rounded-sm px-4 py-3 text-xs">📤 Fazer novo upload</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="chrome-frame mt-4 flex flex-col justify-between gap-2 rounded-sm bg-gradient-to-b from-[#064578] to-[#022344] px-4 py-3 text-[10px] text-sky-100 sm:flex-row sm:items-center">
+      <p>VideoHost © 2025 — Todos os direitos reservados.</p>
+      <p class="italic">Hospedagem simples. Distribuição flexível.</p>
+    </footer>
+  </div>
+
+  <script>
+    async function copyVideoLink(button) {
+      const container = button.closest('td');
+      const input = container.querySelector('.copy-field');
+      const feedback = container.querySelector('.copy-feedback');
+
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(input.value);
+        } else {
+          input.focus();
+          input.select();
+          input.setSelectionRange(0, input.value.length);
+          const copied = document.execCommand('copy');
+          if (!copied) throw new Error('Não foi possível copiar automaticamente.');
+        }
+        feedback.textContent = 'Link copiado para a área de transferência!';
+        feedback.classList.remove('hidden');
+      } catch (error) {
+        input.focus();
+        input.select();
+        input.setSelectionRange(0, input.value.length);
+        feedback.textContent = 'Link selecionado. Pressione Ctrl+C para copiar.';
+        feedback.classList.remove('hidden');
+      }
+    }
+  </script>
+</body>
+</html>
